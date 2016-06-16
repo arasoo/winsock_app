@@ -1,0 +1,4 @@
+D:\Github_App\winsock_app\Common\bin\Debug\Common.dll
+D:\Github_App\winsock_app\Common\bin\Debug\Common.pdb
+D:\Github_App\winsock_app\Common\obj\Debug\Common.dll
+D:\Github_App\winsock_app\Common\obj\Debug\Common.pdb

@@ -1,0 +1,11 @@
+D:\Github_App\winsock_app\Client\obj\Debug\Client.frmClient.resources
+D:\Github_App\winsock_app\Client\obj\Debug\Client.Properties.Resources.resources
+D:\Github_App\winsock_app\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+D:\Github_App\winsock_app\Client\bin\Debug\Client.exe
+D:\Github_App\winsock_app\Client\bin\Debug\Client.pdb
+D:\Github_App\winsock_app\Client\obj\Debug\Client.exe
+D:\Github_App\winsock_app\Client\obj\Debug\Client.pdb
+D:\Github_App\winsock_app\Client\bin\Debug\Common.dll
+D:\Github_App\winsock_app\Client\bin\Debug\Common.pdb
+D:\Github_App\winsock_app\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+D:\Github_App\winsock_app\Client\bin\Debug\DevOne.Security.Cryptography.BCrypt.dll
