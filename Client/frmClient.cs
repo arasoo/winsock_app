@@ -16,6 +16,8 @@ namespace Client
     {
 
         TcpClient clientSocket = new TcpClient();
+        string pwdhash = "";
+        string salt = BCryptHelper.GenerateSalt(6);
 
         public frmClient()
         {
@@ -68,6 +70,13 @@ namespace Client
                         label1.Text = "Client Socket - Server Connected ...";
                         btnSend.Enabled = true;
                         btnConnect.Text = "Disconnect";
+
+                        // set last setting winsock if connected
+                        var appIni = new IniFile(Application.StartupPath + "\\app.ini");
+                 
+                        appIni.Write("SERVER", txtHost.Text.Trim(), "WINSOCK");
+                        appIni.Write("PORT", txtPort.Text.Trim(), "WINSOCK");
+
                     }
                     else
                     {
@@ -121,20 +130,25 @@ namespace Client
 
         private void frmClient_Load(object sender, EventArgs e)
         {
-            if(!File.Exists(Application.StartupPath + "\\app.ini"))
+
+
+
+            if (!File.Exists(Application.StartupPath + "\\app.ini"))
             {
                 File.Create(Application.StartupPath + "\\app.ini");
 
             }
 
             var appIni = new IniFile(Application.StartupPath + "\\app.ini");
-
             if (!appIni.KeyExists("HOST", "SQL"))
             {
                 appIni.Write("HOST", "192.168.10.44", "SQL");
                 appIni.Write("DATABASE", "TM_HO", "SQL");
                 appIni.Write("USER", "bsp", "SQL");
-                appIni.Write("PASSWORD", "1992045", "SQL");
+
+                pwdhash = "1992045" + "A-r4450!";
+                var hashedPassword = BCryptHelper.HashPassword(pwdhash, salt);
+                appIni.Write("PASSWORD", hashedPassword, "SQL");
             }
 
             if (!appIni.KeyExists("SERVER", "WINSOCK"))
@@ -144,12 +158,23 @@ namespace Client
  
             }
 
-            string salt = BCryptHelper.GenerateSalt(6);
 
-            var hashedPassword = BCryptHelper.HashPassword("1992045", salt);
+           if(!DoesPasswordMatch(appIni.Read("PASSWORD", "SQL"), "1992045") == true)
+            {
+                MessageBox.Show("Salah");
+            }
+            else
+            {
+                MessageBox.Show("Betul");
+            }
 
-            MessageBox.Show(hashedPassword);
+            txtHost.Text = appIni.Read("SERVER", "WINSOCK");
+            txtPort.Text= appIni.Read("PORT", "WINSOCK");
+        }
 
+        private bool DoesPasswordMatch(string hashedPwdFromIni, string userEnteredPassword)
+        {
+            return BCryptHelper.CheckPassword(userEnteredPassword + "A-r4450!", hashedPwdFromIni);
         }
     }
 }
