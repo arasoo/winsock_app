@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClient));
             this.btnSend = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
             this.txtText = new System.Windows.Forms.TextBox();
@@ -140,12 +141,14 @@
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.btnSend);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Client Socket";
             this.Load += new System.EventHandler(this.frmClient_Load);
+            this.Activated += new System.EventHandler(this.frmClient_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -16,3 +16,16 @@ D:\Github_App\winsock_app\Server\bin\Debug\Quartz.xml
 D:\Github_App\winsock_app\Server\bin\Debug\Common.dll
 D:\Github_App\winsock_app\Server\bin\Debug\Common.pdb
 D:\Github_App\winsock_app\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+D:\Github_App\winsock_app\Server\bin\Debug\Server.exe.config
+D:\Github_App\winsock_app\Server\bin\Debug\DevOne.Security.Cryptography.BCrypt.dll
+D:\Github_App\winsock_app\Server\bin\Debug\EntityFramework.dll
+D:\Github_App\winsock_app\Server\bin\Debug\EntityFramework.SqlServer.dll
+D:\Github_App\winsock_app\Server\bin\Debug\System.Data.SQLite.dll
+D:\Github_App\winsock_app\Server\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Github_App\winsock_app\Server\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Github_App\winsock_app\Server\bin\Debug\EntityFramework.xml
+D:\Github_App\winsock_app\Server\bin\Debug\EntityFramework.SqlServer.xml
+D:\Github_App\winsock_app\Server\bin\Debug\System.Data.SQLite.xml
+D:\Github_App\winsock_app\Server\obj\Debug\Server.Properties.Resources.resources
+D:\Github_App\winsock_app\Server\obj\Debug\Server.csproj.GenerateResource.Cache
+D:\Github_App\winsock_app\Server\obj\Debug\Server.Form_Server.resources

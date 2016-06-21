@@ -1,0 +1,16 @@
+D:\Github_App\winsock_app\send_email\bin\Debug\send_email.exe
+D:\Github_App\winsock_app\send_email\bin\Debug\send_email.pdb
+D:\Github_App\winsock_app\send_email\obj\Debug\send_email.Form1.resources
+D:\Github_App\winsock_app\send_email\obj\Debug\send_email.Properties.Resources.resources
+D:\Github_App\winsock_app\send_email\obj\Debug\send_email.csproj.GenerateResource.Cache
+D:\Github_App\winsock_app\send_email\obj\Debug\send_email.exe
+D:\Github_App\winsock_app\send_email\obj\Debug\send_email.pdb
+D:\Github_App\winsock_app\send_email\bin\Debug\send_email.exe.config
+D:\Github_App\winsock_app\send_email\bin\Debug\EntityFramework.dll
+D:\Github_App\winsock_app\send_email\bin\Debug\EntityFramework.SqlServer.dll
+D:\Github_App\winsock_app\send_email\bin\Debug\System.Data.SQLite.dll
+D:\Github_App\winsock_app\send_email\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Github_App\winsock_app\send_email\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Github_App\winsock_app\send_email\bin\Debug\EntityFramework.xml
+D:\Github_App\winsock_app\send_email\bin\Debug\EntityFramework.SqlServer.xml
+D:\Github_App\winsock_app\send_email\bin\Debug\System.Data.SQLite.xml
