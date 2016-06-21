@@ -23,7 +23,7 @@ namespace Server
         static SQLiteConnection sqliteCon;
         static SQLiteCommand sqliteCom;
         static SQLiteDataAdapter sqliteDa;
-        static SQLiteTransaction sqliteTran;
+        SQLiteTransaction sqliteTran;
         static DataTable dt;
         BackgroundWorker bw = new BackgroundWorker();
         string pubIp ="";
@@ -135,13 +135,13 @@ namespace Server
 
                             sqliteCon.Open();
 
-                            sqliteTran = sqliteCon.BeginTransaction();
+                         
 
 
                             sqliteCom = new SQLiteCommand();
 
                             sqliteCom.Connection = sqliteCon;
-                            sqliteCom.Transaction = sqliteTran;
+                      
                             sqliteCom.CommandText = "SELECT amount FROM sales " +
                                                     "WHERE branch='" + s.branch + "'" +
                                                     "AND date='" + string.Format("{0:yyyy-MM-dd}", s.dateTran) + "';";
@@ -152,38 +152,33 @@ namespace Server
 
                             sqliteCon.Close();
 
+
+                            sqliteCon.Open();
+                            sqliteTran = sqliteCon.BeginTransaction();
+                            sqliteCom = new SQLiteCommand();
+                            sqliteCom.Connection = sqliteCon;
+                            sqliteCom.Transaction = sqliteTran;
+
                             if (dt.Rows.Count == 0)
                             {
-                                sqliteCon.Open();
-
-                                sqliteCom = new SQLiteCommand();
-                                sqliteCom.Connection = sqliteCon;
-                                sqliteCom.Transaction = sqliteTran;
+                              
                                 sqliteCom.CommandText = "INSERT INTO sales(branch,date,org,amount) " +
                                                         "VALUES ('" + s.branch + "'," +
                                                                 "'" + string.Format("{0:yyyy-MM-dd}", s.dateTran) + "'," +
                                                                 "'" + s.org + "'," +
                                                                 "'" + s.total + "')";
-
-
-                                sqliteCom.ExecuteNonQuery();
-
-                                sqliteCon.Close();
                             }
                             else
                             {
-                                sqliteCon.Open();
-                                sqliteCom = new SQLiteCommand();
-                                sqliteCom.Connection = sqliteCon;
-                                sqliteCom.Transaction = sqliteTran;
+         
                                 sqliteCom.CommandText = "UPDATE sales SET amount=" + s.total +
                                                         " WHERE branch='" + s.branch + "'" +
                                                         " AND date='" + string.Format("{0:yyyy-MM-dd}", s.dateTran) + "';";
-
-                                sqliteCom.ExecuteNonQuery();
-                                sqliteCon.Close();
+   
                             }
 
+
+                            sqliteCom.ExecuteNonQuery();
                             sqliteTran.Commit();
 
                             //        requestCount = requestCount + 1;
@@ -211,16 +206,13 @@ namespace Server
                     }
                     catch(Exception ex)
                     {
-                        // Attempt to roll back the transaction. 
-                        try
-                        {
-                            sqliteTran.Rollback();
-                        }
-                        catch (Exception ex2)
-                        {
-                            throw ex2;
-                        
-                        }
+                       
+                        sqliteTran.Rollback();
+                        throw ex;
+                    }
+                    finally
+                    {
+                        sqliteCon.Close();
                     }
                     
                 }
